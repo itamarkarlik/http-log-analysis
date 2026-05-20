@@ -29,7 +29,7 @@ screenshots/total-http-event-count.png
 index="soc-splunk-lab" sourcetype="http_logs"
 | rex field=_raw "^(?<unix_time>\d+\.\d+)"
 | eval _time=unix_time
-| timechart span=1m count as http_events
+| timechart span=15m count as http_events
 ```
 
 ### Purpose
