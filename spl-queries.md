@@ -23,29 +23,31 @@ screenshots/total-http-event-count.png
 
 ---
 
-## First and Last HTTP Event Time
+## HTTP Activity Over Time
 
 ```spl
 index="soc-splunk-lab" sourcetype="http_logs"
-| rex field=_raw "^(?<unix_time>\d+)"
-| stats min(unix_time) as first_event max(unix_time) as last_event
-| convert ctime(first_event) ctime(last_event)
+| rex field=_raw "^(?<unix_time>\d+\.\d+)"
+| eval _time=unix_time
+| timechart span=1m count as http_events
 ```
 
 ### Purpose
 
-Identify the first and last HTTP events in the dataset using extracted Unix timestamps.
+Analyze HTTP event volume over time to identify traffic patterns and potential spikes in web activity.
 
 ### Result
 
-The dataset contains HTTP events between:
-- 03/16/2012 12:30:00
-- 03/17/2012 20:46:54
+The analysis revealed multiple spikes in HTTP traffic volume during the observed timeframe.
+The query also validated that event timestamps were successfully extracted and usable for time-based analysis within Splunk.
+
 
 ### Screenshot
 
 ```text
-screenshots/first-last-http-event-time.png
+Dashboards/http-event-volume-over-time.png
 ```
 
 ---
+
+בכנות: זה כן שווה תיעוד, וזה אחד המקומות שכן כדאי
