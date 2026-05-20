@@ -75,3 +75,75 @@ Dashboards/top-source-ips-http-volume.png
 
 ---
 
+## HTTP Status Code Distribution
+
+```spl
+index="soc-splunk-lab" sourcetype="http_logs"
+| stats count by status_code
+| sort - count
+```
+
+### Purpose
+
+Analyze the distribution of HTTP response status codes within the dataset.
+
+### Result
+
+The analysis identified the most common HTTP response codes and provided visibility into different kind of requests.
+
+### Screenshot
+
+```text
+Dashboards/http-status-code-distribution.png
+```
+
+---
+
+## HTTP Methods Distribution
+
+```spl
+index="soc-splunk-lab" sourcetype="http_logs"
+| stats count by http_method
+| sort - count
+| head 10
+```
+
+### Purpose
+
+Analyze the distribution of HTTP request methods within the dataset.
+
+### Result
+
+The analysis identified the most frequently used HTTP methods observed in the web traffic logs.
+
+### Screenshot
+
+```text
+Dashboards/http-methods-distribution.png
+```
+
+---
+
+## Top Requested URIs
+
+```spl
+index="soc-splunk-lab" sourcetype="http_logs"
+| where uri!="-" AND uri!= "/"
+| top limit=10 uri
+```
+
+### Purpose
+
+Identify the most frequently requested HTTP URIs within the dataset.
+
+### Result
+
+The analysis identified the most commonly accessed web resources.
+
+### Screenshot
+
+```text
+Dashboards/top-requested-uris.png
+```
+
+---
