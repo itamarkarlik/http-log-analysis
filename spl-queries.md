@@ -49,5 +49,3 @@ Dashboards/http-event-volume-over-time.png
 ```
 
 ---
-
-בכנות: זה כן שווה תיעוד, וזה אחד המקומות שכן כדאי
