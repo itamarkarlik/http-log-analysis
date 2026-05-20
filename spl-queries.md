@@ -50,3 +50,28 @@ Dashboards/http-event-volume-over-time.png
 
 ---
 
+## Top Source IPs by HTTP Request Volume
+
+```spl
+index="soc-splunk-lab" sourcetype="http_logs"
+| stats count as request_count by src_ip
+| sort - request_count
+| head 10
+```
+
+### Purpose
+
+Identify the source IP addresses generating the highest volume of HTTP requests within the dataset.
+
+### Result
+
+Several internal source IP addresses were responsible for the majority of HTTP traffic observed in the environment.
+
+### Screenshot
+
+```text
+Dashboards/top-source-ips-http-volume.png
+```
+
+---
+
