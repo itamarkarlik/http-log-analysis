@@ -147,3 +147,29 @@ Dashboards/top-requested-uris.png
 ```
 
 ---
+
+## Top Source IPs Generating HTTP 404 Responses
+
+```spl
+index="soc-splunk-lab" sourcetype="http_logs"
+| where status_code="404"
+| stats count by src_ip
+| sort - count
+| head 10
+```
+
+### Purpose
+
+Identify the source IP addresses responsible for generating the highest number of HTTP 404 responses.
+
+### Result
+
+Several internal source IP addresses generated a high volume of HTTP 404 responses, potentially indicating resource enumeration, broken links, or scanning activity.
+
+### Screenshot
+
+```text
+Dashboards/top-source-ips-404-responses.png
+```
+
+---
