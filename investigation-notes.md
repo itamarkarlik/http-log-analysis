@@ -22,3 +22,14 @@ Based on the event structure, the following fields were identified and extracted
 The extracted fields were later used throughout the investigation process for traffic analysis, anomaly detection, and HTTP activity monitoring.
 
 ---
+
+
+## High Volume of HTTP 404 Responses
+
+Analysis of HTTP 404 response activity identified several source IP addresses generating failed web requests.
+
+One source IP address (`192.168.203.63`) generated a significantly higher volume of 404 responses compared to all other systems in the dataset, with over 1.2 million failed requests observed.
+
+The activity may indicate automated web requests, aggressive crawling, scanning activity, application misconfiguration, or repeated access attempts to unavailable resources.
+
+Additional investigation was required to determine whether the behavior represented legitimate application activity or potentially suspicious enumeration behavior.
