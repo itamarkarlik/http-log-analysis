@@ -2,7 +2,7 @@
 
 During the initial review of the raw HTTP events, the log structure was manually analyzed in order to understand the position and meaning of important web traffic fields within the dataset.
 
-Field extraction was then performed to normalize key HTTP attributes for investigation and analysis purposes.
+To improve searchability, filtering, correlation, and investigation efficiency within Splunk, field extraction was performed to normalize key HTTP attributes from the raw events.
 
 Based on the event structure, the following fields were identified and extracted:
 
@@ -19,5 +19,5 @@ Based on the event structure, the following fields were identified and extracted
 - `http_host`
 - `bytes`
 
-
+The extracted fields were later used throughout the investigation process for traffic analysis, anomaly detection, and HTTP activity monitoring.
 ---
