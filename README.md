@@ -5,14 +5,18 @@ This project focuses on HTTP traffic analysis using Splunk Enterprise and a data
 The investigation included:
 
 - HTTP traffic analysis
-- Web attack detection
+- Web reconnaissance and attack analysis
 - Directory enumeration analysis
 - Directory traversal investigation
 - Time-based traffic analysis
-- Dashboard creation
+- Dashboard development and visualization
 - Suspicious IP investigation and correlation
 
 The HTTP dataset was imported into a custom Splunk lab environment for analysis and investigation.
+
+The investigation identified multiple forms of suspicious web activity, including automated directory enumeration, web reconnaissance, and directory traversal probing attempts targeting sensitive application resources.
+
+Several traversal-style requests received successful HTTP 200 responses across multiple hosts and applications, increasing the likelihood of potential vulnerability exposure within the environment.
 
 ---
 
