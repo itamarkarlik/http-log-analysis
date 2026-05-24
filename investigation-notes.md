@@ -26,13 +26,13 @@ The extracted fields were later used throughout the investigation process for tr
 
 ## High Volume of HTTP 404 Responses
 
-Analysis of HTTP 404 response activity identified several source IP addresses generating failed web requests.
+Analysis of HTTP 404 response activity identified multiple source IP addresses generating high volumes of failed web requests across the environment.
 
-One source IP address (`192.168.203.63`) generated a significantly higher volume of 404 responses compared to all other systems in the dataset, with over 1.2 million failed requests observed.
+One source IP address (`192.168.203.63`) generated a significantly higher volume of HTTP 404 responses compared to all other observed hosts, with over 1.2 million failed requests recorded.
 
-The activity may indicate automated web requests, aggressive crawling, scanning activity, application misconfiguration, or repeated access attempts to unavailable resources.
+Further analysis revealed that this activity was associated with the `DirBuster-0.12` user-agent, indicating automated web directory enumeration behavior.
 
-Additional investigation was required to determine whether the behavior represented legitimate application activity or potentially suspicious enumeration behavior.
+The observed pattern is consistent with aggressive reconnaissance activity, including large-scale URI brute-forcing and web content discovery attempts aimed at identifying accessible or hidden web resources within the environment.
 
 ---
 
@@ -45,4 +45,4 @@ Further investigation revealed repeated attempts to access sensitive web applica
 
 Additional inspection identified directory traversal patterns targeting system files such as `/etc/passwd` and Windows configuration files (`win.ini`).
 
-The behavior is consistent with automated reconnaissance and vulnerability scanning activity, likely performed using web attack tools or scripts designed to enumerate vulnerable endpoints.
+
