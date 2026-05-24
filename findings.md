@@ -113,6 +113,26 @@ At the current stage of the investigation, no definitive evidence of successful 
 
 Additional host-level investigation and application review would be recommended to determine whether any targeted systems were successfully exploited.
 
+---
+
+## MITRE ATT&CK Mapping
+
+The following MITRE ATT&CK techniques were identified based on observed HTTP traffic patterns and investigation findings:
+
+| Activity | MITRE ATT&CK Technique | Technique ID |
+|----------|------------------------|--------------|
+| Automated web directory enumeration using DirBuster | Active Scanning | T1595 |
+| Web Application Targeting (/admin.php, /phpmyadmin) | Exploit Public-Facing Application | T1190 |
+
+
+---
+
+### Notes
+
+- Techniques are mapped based on observed HTTP request behavior and payload patterns.
+- No post-exploitation activity was observed within the available dataset.
+- Mapping reflects attacker behavior during reconnaissance and exploitation phases only.
+
 ## Recommendations
 
 Recommended defensive actions include:
