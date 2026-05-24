@@ -28,7 +28,14 @@ The extracted fields were later used throughout the investigation process for tr
 
 Analysis of HTTP 404 response activity identified several source IP addresses generating failed web requests.
 
+One source IP address (`192.168.203.63`) generated a significantly higher volume of 404 responses compared to all other systems in the dataset, with over 1.2 million failed requests observed.
+
+The activity may indicate automated web requests, aggressive crawling, scanning activity, application misconfiguration, or repeated access attempts to unavailable resources.
+
+Additional investigation was required to determine whether the behavior represented legitimate application activity or potentially suspicious enumeration behavior.
+
 ---
+
 
 ## Investigation Notes: 192.168.202.110
 
@@ -39,9 +46,3 @@ Further investigation revealed repeated attempts to access sensitive web applica
 Additional inspection identified directory traversal patterns targeting system files such as `/etc/passwd` and Windows configuration files (`win.ini`).
 
 The behavior is consistent with automated reconnaissance and vulnerability scanning activity, likely performed using web attack tools or scripts designed to enumerate vulnerable endpoints.
-
-One source IP address (`192.168.203.63`) generated a significantly higher volume of 404 responses compared to all other systems in the dataset, with over 1.2 million failed requests observed.
-
-The activity may indicate automated web requests, aggressive crawling, scanning activity, application misconfiguration, or repeated access attempts to unavailable resources.
-
-Additional investigation was required to determine whether the behavior represented legitimate application activity or potentially suspicious enumeration behavior.
