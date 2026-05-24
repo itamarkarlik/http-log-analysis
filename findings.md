@@ -43,7 +43,7 @@ Additional analysis identified multiple traversal-style requests that received H
 
 The successful responses suggest that some targeted applications processed the traversal-style requests successfully, increasing the likelihood of potential vulnerability exposure or successful resource access attempts.
 
-The behavior strongly indicates automated web scanning and exploitation-oriented probing activity aimed at discovering vulnerable or exposed web application components.
+The behavior strongly indicates automated web scanning aimed at discovering vulnerable or exposed web application components.
 
 ### Evidence
 
@@ -71,7 +71,6 @@ Observed activity included:
 - Directory traversal payloads attempting to access sensitive system files
 - Successful HTTP 200 responses associated with traversal-style requests
 
-The overall behavior is consistent with vulnerability scanning, web reconnaissance, and exploitation probing activity targeting exposed web application resources within the environment.
 
 ## Severity Assessment
 
@@ -92,7 +91,7 @@ The assessment was based on multiple correlated indicators including:
 - high-volume HTTP 404 activity
 - and repeated HTTP 200 responses associated with traversal-style requests across multiple hosts and applications
 
-No definitive evidence of successful system compromise or post-exploitation activity was identified within the available HTTP logs.
+Additional host-level investigation and application review would be recommended to determine whether any targeted systems were successfully exploited.
 
 ## Potential Impact
 
@@ -109,15 +108,11 @@ In a production environment, successful traversal-style requests targeting sensi
 - Finding #1 was assessed as a True Positive associated with directory enumeration activity.
 - Finding #2 was assessed as a High-Confidence True Positive associated with web reconnaissance and exploitation-oriented traversal probing activity.
 
-At the current stage of the investigation, no definitive evidence of successful system compromise or post-exploitation activity was identified within the available HTTP logs.
-
-Additional host-level investigation and application review would be recommended to determine whether any targeted systems were successfully exploited.
-
 ---
 
 ## MITRE ATT&CK Mapping
 
-The following MITRE ATT&CK techniques were identified based on observed HTTP traffic patterns and investigation findings:
+The following MITRE ATT&CK techniques were identified based on investigation findings:
 
 | Activity | MITRE ATT&CK Technique | Technique ID |
 |----------|------------------------|--------------|
@@ -127,20 +122,11 @@ The following MITRE ATT&CK techniques were identified based on observed HTTP tra
 
 ---
 
-### Notes
-
-- Techniques are mapped based on observed HTTP request behavior and payload patterns.
-- No post-exploitation activity was observed within the available dataset.
-- Mapping reflects attacker behavior during reconnaissance and exploitation phases only.
-
 ## Recommendations
 
-Recommended defensive actions include:
+Recommended actions include:
 - Restrict access to sensitive administrative paths
 - Disable unnecessary CGI and legacy web components
 - Implement Web Application Firewall (WAF) protections
 - Monitor for directory traversal patterns and abnormal HTTP activity
-- Review systems targeted by successful traversal-style requests
 - Block or alert on automated scanning tools and suspicious user-agents
-
-The investigation concluded with high-confidence findings of malicious web reconnaissance and enumeration activity, while no definitive evidence of successful post-exploitation behavior was identified within the available HTTP logs.
