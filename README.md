@@ -42,6 +42,16 @@ Several traversal-style requests received successful HTTP 200 responses across m
 
 ---
 
+## Dataset Source
+
+The HTTP log dataset used in this project was obtained from the following public repository:
+
+https://github.com/0xrajneesh/Splunk-Projects-For-Beginners
+
+The dataset was imported into a custom Splunk lab environment and analyzed as part of this investigation project.
+
+---
+
 ## Key Analysis Performed
 
 - Total HTTP event analysis
@@ -74,6 +84,7 @@ The following dashboards were created during the investigation:
 
 ## Project Structure
 
+```text
 http-log-analysis/
 │
 ├── Dashboards/
@@ -82,3 +93,4 @@ http-log-analysis/
 ├── findings.md
 ├── investigation-notes.md
 └── spl-queries.md
+```
