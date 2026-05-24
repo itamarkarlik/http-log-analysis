@@ -52,3 +52,48 @@ Screenshots/ip-192-168-202-110-404-uri-analysis.png
 Screenshots/ip-192-168-202-110-traversal-analysis.png
 Screenshots/ip-192-168-202-110-successful-traversal-responses.png
 ```
+
+# Final Assessment
+
+## Investigation Summary
+
+Analysis of the HTTP log dataset identified multiple indicators of suspicious and potentially malicious web activity originating from internal source IP addresses.
+
+The investigation identified two primary findings:
+
+- Automated web directory enumeration activity associated with the OWASP DirBuster tool (`192.168.203.63`)
+- Web reconnaissance and directory traversal probing activity targeting sensitive web application resources (`192.168.202.110`)
+
+Observed activity included:
+- High-volume HTTP 404 response generation
+- Large-scale URI enumeration
+- Requests targeting administrative web application paths
+- Directory traversal payloads attempting to access sensitive system files
+- Successful HTTP 200 responses associated with traversal-style requests
+
+The overall behavior is consistent with automated vulnerability scanning, web reconnaissance, and exploitation probing activity targeting exposed web application resources within the environment.
+
+## Severity Assessment
+
+- Finding #1 — Medium Severity
+- Finding #2 — High Severity
+
+The second finding was assessed with higher severity due to successful HTTP 200 responses associated with traversal-style payloads targeting sensitive system resources.
+
+## Potential Impact
+
+If performed against vulnerable production systems, the observed activity could potentially lead to:
+- Exposure of sensitive files
+- Discovery of vulnerable web application components
+- Unauthorized access to system resources
+- Additional exploitation attempts against exposed applications
+
+## Recommendations
+
+Recommended defensive actions include:
+- Restrict access to sensitive administrative paths
+- Disable unnecessary CGI and legacy web components
+- Implement Web Application Firewall (WAF) protections
+- Monitor for directory traversal patterns and abnormal HTTP activity
+- Review systems targeted by successful traversal-style requests
+- Block or alert on automated scanning tools and suspicious user-agents
