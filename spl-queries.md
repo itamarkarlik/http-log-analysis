@@ -89,7 +89,7 @@ Analyze the distribution of HTTP response status codes within the dataset.
 
 ### Result
 
-The analysis identified the most common HTTP response codes and provided visibility into different kind of requests.
+The analysis identified the most common HTTP response codes and provided visibility into overall web traffic behavior and request outcomes.
 
 ### Screenshot
 
@@ -186,7 +186,7 @@ index="soc-splunk-lab" sourcetype="http_logs" src_ip="192.168.202.110"
 
 ### Purpose
 
-Identify the most frequently requested HTTP URIs that resulted in 404 responses for the suspicious source IP 192.168.202.110.
+Identify the most frequently requested HTTP URIs associated with the suspicious source IP 192.168.202.110.
 
 ### Result
 
@@ -200,7 +200,7 @@ Screenshots/ip-192-168-202-110-uri-analysis.png
 
 ---
 
-## Raw Request Analysis for 192.168.202.110 (Traversal Focus)
+## Directory Traversal Analysis for 192.168.202.110
 
 ```spl
 index="soc-splunk-lab" sourcetype="http_logs" src_ip="192.168.202.110"
@@ -221,6 +221,8 @@ Multiple directory traversal patterns were observed, including attempts to acces
 ```text
 Screenshots/ip-192-168-202-110-traversal-analysis.png
 ```
+
+---
 
 ## Successful Directory Traversal Responses
 
