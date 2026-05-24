@@ -36,6 +36,13 @@ Further investigation revealed repeated requests targeting sensitive web applica
 - Requests to administrative paths such as `/admin.php` and `/phpmyadmin`
 - Directory traversal attempts (`../../../../etc/passwd`, `win.ini`)
 
+Additional analysis identified multiple traversal-style requests that received HTTP 200 responses, including requests attempting to access sensitive resources such as:
+
+- `/etc/passwd`
+- `winnt/system32/ipconfig.exe`
+
+The successful responses suggest that some targeted applications processed the traversal-style requests successfully, increasing the likelihood of potential vulnerability exposure or successful resource access attempts.
+
 The behavior strongly indicates automated web scanning and exploitation attempts aimed at discovering vulnerable or exposed web application components.
 
 ### Evidence
@@ -43,4 +50,5 @@ The behavior strongly indicates automated web scanning and exploitation attempts
 ```text
 Screenshots/ip-192-168-202-110-404-uri-analysis.png
 Screenshots/ip-192-168-202-110-traversal-analysis.png
+Screenshots/ip-192-168-202-110-successful-traversal-responses.png
 ```
