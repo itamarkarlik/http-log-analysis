@@ -25,7 +25,7 @@ Screenshots/dirbuster-user-agent-detection.png
 
 ---
 
-## Finding #2 - Web Scanning and Directory Traversal Attempts Detected
+## Finding #2 - Web Reconnaissance and Directory Traversal Probing Activity Detected
 
 Analysis of HTTP 404 response activity and URI patterns identified suspicious web reconnaissance behavior originating from source IP `192.168.202.110`.
 
@@ -43,7 +43,7 @@ Additional analysis identified multiple traversal-style requests that received H
 
 The successful responses suggest that some targeted applications processed the traversal-style requests successfully, increasing the likelihood of potential vulnerability exposure or successful resource access attempts.
 
-The behavior strongly indicates automated web scanning and exploitation attempts aimed at discovering vulnerable or exposed web application components.
+The behavior strongly indicates automated web scanning and exploitation-oriented probing activity aimed at discovering vulnerable or exposed web application components.
 
 ### Evidence
 
@@ -82,7 +82,7 @@ The second finding was assessed with higher severity due to successful HTTP 200 
 
 ## Confidence Assessment
 
-- Finding #1 was assessed with high confidence as  web directory enumeration activity associated with the OWASP DirBuster tool.
+- Finding #1 was assessed with high confidence as web directory enumeration activity associated with the OWASP DirBuster tool.
 - Finding #2 was assessed with high confidence as malicious web reconnaissance and exploitation-oriented traversal probing activity.
 
 The assessment was based on multiple correlated indicators including:
@@ -122,3 +122,5 @@ Recommended defensive actions include:
 - Monitor for directory traversal patterns and abnormal HTTP activity
 - Review systems targeted by successful traversal-style requests
 - Block or alert on automated scanning tools and suspicious user-agents
+
+The investigation concluded with high-confidence findings of malicious web reconnaissance and enumeration activity, while no definitive evidence of successful post-exploitation behavior was identified within the available HTTP logs.
