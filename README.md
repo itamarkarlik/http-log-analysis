@@ -16,8 +16,6 @@ The HTTP dataset was imported into a custom Splunk lab environment for analysis 
 
 The investigation identified multiple forms of suspicious web activity, including automated directory enumeration, web reconnaissance, and directory traversal probing attempts targeting sensitive application resources.
 
-Several traversal-style requests received successful HTTP 200 responses across multiple hosts and applications, increasing the likelihood of potential vulnerability exposure within the environment.
-
 ---
 
 ## Technologies Used
