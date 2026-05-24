@@ -71,7 +71,7 @@ Observed activity included:
 - Directory traversal payloads attempting to access sensitive system files
 - Successful HTTP 200 responses associated with traversal-style requests
 
-The overall behavior is consistent with automated vulnerability scanning, web reconnaissance, and exploitation probing activity targeting exposed web application resources within the environment.
+The overall behavior is consistent with vulnerability scanning, web reconnaissance, and exploitation probing activity targeting exposed web application resources within the environment.
 
 ## Severity Assessment
 
@@ -80,6 +80,20 @@ The overall behavior is consistent with automated vulnerability scanning, web re
 
 The second finding was assessed with higher severity due to successful HTTP 200 responses associated with traversal-style payloads targeting sensitive system resources.
 
+## Confidence Assessment
+
+- Finding #1 was assessed with high confidence as  web directory enumeration activity associated with the OWASP DirBuster tool.
+- Finding #2 was assessed with high confidence as malicious web reconnaissance and exploitation-oriented traversal probing activity.
+
+The assessment was based on multiple correlated indicators including:
+- repeated traversal-style payloads
+- requests targeting sensitive system files
+- phpMyAdmin and CGI-related targeting
+- high-volume HTTP 404 activity
+- and repeated HTTP 200 responses associated with traversal-style requests across multiple hosts and applications
+
+No definitive evidence of successful system compromise or post-exploitation activity was identified within the available HTTP logs.
+
 ## Potential Impact
 
 If performed against vulnerable production systems, the observed activity could potentially lead to:
@@ -87,6 +101,17 @@ If performed against vulnerable production systems, the observed activity could 
 - Discovery of vulnerable web application components
 - Unauthorized access to system resources
 - Additional exploitation attempts against exposed applications
+
+In a production environment, successful traversal-style requests targeting sensitive files such as `/etc/passwd` could expose system configuration details, usernames, application paths, or other information useful for additional exploitation and lateral movement attempts.
+
+## Analyst Assessment
+
+- Finding #1 was assessed as a True Positive associated with directory enumeration activity.
+- Finding #2 was assessed as a High-Confidence True Positive associated with web reconnaissance and exploitation-oriented traversal probing activity.
+
+At the current stage of the investigation, no definitive evidence of successful system compromise or post-exploitation activity was identified within the available HTTP logs.
+
+Additional host-level investigation and application review would be recommended to determine whether any targeted systems were successfully exploited.
 
 ## Recommendations
 
