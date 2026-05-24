@@ -34,7 +34,7 @@ Analysis of HTTP 404 response activity identified several source IP addresses ge
 
 Initial analysis of HTTP logs identified abnormal traffic originating from 192.168.202.110, with a high number of HTTP 404 responses across multiple endpoints.
 
-Further investigation revealed repeated attempts to access sensitive web application paths, including administrative interfaces, login pages, and CGI directories.
+Further investigation revealed repeated attempts to access sensitive web application paths, including administrative interfaces and login pages.
 
 Additional inspection identified directory traversal patterns targeting system files such as `/etc/passwd` and Windows configuration files (`win.ini`).
 
