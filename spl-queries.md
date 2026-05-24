@@ -173,3 +173,51 @@ Dashboards/top-source-ips-404-responses.png
 ```
 
 ---
+
+
+## URI Analysis for 192.168.202.110
+
+```spl
+index="soc-splunk-lab" sourcetype="http_logs" src_ip="192.168.202.110"
+| stats count by uri
+| sort - count
+| head 20
+```
+
+### Purpose
+
+Identify the most frequently requested HTTP URIs that resulted in 404 responses for the suspicious source IP 192.168.202.110.
+
+### Result
+
+The analysis revealed repeated access attempts to sensitive web application paths including administrative interfaces, login pages, and multiple directory traversal payloads. Several requests included attempts to access system files such as `/etc/passwd` and Windows configuration files (`win.ini`), indicating potential reconnaissance and exploitation attempts.
+
+### Screenshot
+
+```text
+Screenshots/ip-192-168-202-110-uri-analysis.png
+```
+
+---
+
+## Raw Request Analysis for 192.168.202.110 (Traversal Focus)
+
+```spl
+index="soc-splunk-lab" sourcetype="http_logs" src_ip="192.168.202.110"
+| search uri="*../*"
+| table _time uri status_code http_method user_agent
+```
+
+### Purpose
+
+Detect directory traversal attempts.
+
+### Result
+
+Multiple directory traversal patterns were observed, including attempts to access `/etc/passwd` and Windows system files.
+
+### Screenshot
+
+```text
+Screenshots/ip-192-168-202-110-traversal-analysis.png
+```
